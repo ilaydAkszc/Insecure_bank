@@ -35,25 +35,14 @@
                     <div class="form-group mb-3">
                         <label asp-for="Bio" class="form-label"></label>
                         <textarea asp-for="Bio" class="form-control" rows="4" placeholder="Hakkımda..."></textarea>
-                     @*    <small class="form-text text-muted">
-                            You can use HTML tags for formatting!
-                            <span class="text-danger">(XSS Vulnerability)</span>
-                        </small> *@
+                  
                     </div>
 
                     <button type="submit" class="btn btn-primary">Güncelle</button>
                     <a href="@Url.Action("Dashboard", "Home")" class="btn btn-secondary">İptal</a>
                 </form>
 
-            @*     <div class="alert alert-warning mt-3">
-                    <h6>🔓 XSS Test Examples:</h6>
-                    <small>
-                        Try adding these to your bio:<br>
-                        <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code><br>
-                        <code>&lt;img src="x" onerror="alert('XSS')"&gt;</code><br>
-                        <code>&lt;b&gt;Bold text&lt;/b&gt;</code>
-                    </small>
-                </div> *@
+        
             </div>
         </div>
     </div>
@@ -76,18 +65,7 @@
                 </div>
             </div>
         </div>
-@* 
-        <div class="card mt-3">
-            <div class="card-header bg-danger text-white">
-                <h6 class="mb-0">⚠️ XSS Vulnerability</h6>
-            </div>
-            <div class="card-body">
-                <small class="text-muted">
-                    The Bio field uses Html.Raw() which allows HTML/JavaScript execution.
-                    This is a Stored XSS vulnerability.
-                </small>
-            </div>
-        </div> *@
+
     </div>
 </div>
 
@@ -96,4 +74,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
 
