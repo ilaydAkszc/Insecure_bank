@@ -65,7 +65,7 @@
                         <h6 class="mb-0">Alıcı</h6>
                     </div>
                     <div class="card-body">
-                        <!-- DOĞRU KOD: -->
+                     
                         <p><strong>Hesap Numarası:</strong> @Model.ToAccount.AccountNumber</p>
                         <p><strong>Hesap Tipi:</strong> @Model.ToAccount.AccountType</p>
                         <p><strong>Sahibi:</strong> @Model.ToAccount.User.Username</p>
@@ -81,13 +81,13 @@
                 <div class="alert alert-light">
                     <div class="row">
                         <div class="col-md-4">
-                            <strong>Initiated by User ID:</strong> @Model.UserId
+                            <strong>İşlemi yapan kullanıcı ID:</strong> @Model.UserId
                         </div>
                         <div class="col-md-4">
-                            <strong>From Account ID:</strong> @Model.FromAccountId
+                            <strong>Gönderen hesap ID:</strong> @Model.FromAccountId
                         </div>
                         <div class="col-md-4">
-                            <strong>To Account ID:</strong> @Model.ToAccountId
+                            <strong>Alıcı hesap ID:</strong> @Model.ToAccountId
                         </div>
                     </div>
                 </div>
@@ -96,53 +96,12 @@
     </div>
 </div>
 
-<div class="alert alert-danger mt-3">
-    <h6>🔓 IDOR Security Vulnerability Detected!</h6>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="mb-1"><strong>Security Issue:</strong> Unauthorized access to transaction data</p>
-            <small>
-                <strong>Current Session User:</strong> @Context.Session.GetString("Username") (ID: @Context.Session.GetInt32("UserId"))<br>
-                <strong>Transaction Owner:</strong> User ID @Model.UserId<br>
-                @if (Context.Session.GetInt32("UserId") != Model.UserId)
-                {
-                    <span class="text-danger fw-bold">⚠️ You are viewing someone else's transaction!</span>
-                }
-                else
-                {
-                    <span class="text-success">✓ This is your transaction</span>
-                }
-            </small>
-        </div>
-        <div class="col-md-6">
-            <small>
-                <strong>What an attacker can see:</strong><br>
-                • Full transaction details<br>
-                • Account numbers and balances<br>
-                • Account holder names<br>
-                • Transaction patterns<br>
-                • Financial relationships
-            </small>
-        </div>
-    </div>
-</div>
 
-<div class="alert alert-info mt-3">
-    <h6>🔍 IDOR Testing Tips:</h6>
-    <small>
-        <strong>Try these URLs to test IDOR:</strong><br>
-        • <code>/Banking/TransactionDetails/1</code> - View transaction #1<br>
-        • <code>/Banking/TransactionDetails/2</code> - View transaction #2<br>
-        • <code>/Banking/AccountDetails/1</code> - View account #1<br>
-        • <code>/Banking/AccountDetails/2</code> - View account #2<br>
-        <br>
-        <strong>Expected behavior:</strong> You should only see your own data<br>
-        <strong>Current behavior:</strong> You can see anyone's data by changing IDs
-    </small>
-</div>
+
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
 }
