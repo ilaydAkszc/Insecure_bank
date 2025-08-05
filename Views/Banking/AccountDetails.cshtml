@@ -5,11 +5,11 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>Hesap Detayları</h2>
-   @*  <a href="@Url.Action("ShowAccounts", "Banking")" class="btn btn-outline-secondary">Hesap merkezine geri dön</a> *@
+ 
 </div>
 
 <div class="card">
-    @* @(Model.AccountType == "Admin" ? "bg-warning" : "bg-primary") *@
+
     <div class="card-header bg-primary  text-white">
         <h3>Hesap #@Model.AccountNumber</h3>
     </div>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-6">
                 <h5>Hesap sahibinin bilgileri</h5>
-              @*   <p><strong>User ID:</strong> @Model.UserId</p> *@
+
                 <p><strong>Kullanıcı adı:</strong> @Model.User.Username</p>
                 <p><strong>Email:</strong> @Model.User.Email</p>
  
@@ -49,20 +49,10 @@
     </div>
 </div>
 
-@* <div class="alert alert-danger mt-3">
-    <h6>🔓 IDOR Security Issue Detected!</h6>
-    <p class="mb-1">You are viewing account details without proper authorization check.</p>
-    <small>
-        <strong>Current User Session:</strong> @Context.Session.GetString("Username") (ID: @Context.Session.GetInt32("UserId"))<br>
-        <strong>Account Owner:</strong> @Model.User.Username (ID: @Model.UserId)<br>
-        @if (Context.Session.GetInt32("UserId") != Model.UserId)
-        {
-            <span class="text-danger"><strong>⚠️ You are viewing someone else's account!</strong></span>
-        }
-    </small>
-</div> *@
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
 }
