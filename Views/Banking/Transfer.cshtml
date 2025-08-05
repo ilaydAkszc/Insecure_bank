@@ -78,21 +78,6 @@
             </div>
         </div>
 
-       @*  <div class="alert alert-danger mt-4">
-            <h6>🔓 CSRF Vulnerability Demonstration</h6>
-            <p class="mb-2">This form has no CSRF protection! An attacker could:</p>
-            <ul class="mb-2">
-                <li>Create a malicious website with hidden forms</li>
-                <li>Trick users into visiting the malicious site</li>
-                <li>Automatically submit transfers without user consent</li>
-            </ul>
-            <small class="text-muted">
-                Missing security measures:<br>
-                • No <code>@Html.AntiForgeryToken()</code><br>
-                • No <code>[ValidateAntiForgeryToken]</code> attribute<br>
-                • No SameSite cookie settings
-            </small>
-        </div> *@
     </div>
 </div>
 
@@ -101,20 +86,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
- @*    <script>
-        // Demo: Show CSRF vulnerability in console
-        console.log("CSRF Vulnerability: This form can be submitted from any external website!");
-        console.log("Try the CSRF attack demo page to see this in action.");
 
-        // Auto-fill demo values for testing
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('demo') === 'true') {
-                document.querySelector('select[name="FromAccountId"]').value = '2';
-                document.querySelector('input[name="ToAccountNumber"]').value = '1001';
-                document.querySelector('input[name="Amount"]').value = '10.00';
-                document.querySelector('input[name="Description"]').value = 'Demo transfer';
-            }
-        });
-    </script> *@
 }
+
