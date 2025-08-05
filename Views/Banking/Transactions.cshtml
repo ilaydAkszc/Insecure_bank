@@ -7,14 +7,7 @@
     <h2>📊 İşlem Geçmişi</h2>
     <div>
         <a href="@Url.Action("Transfer", "Banking")" class="btn btn-success">Yeni Transfer</a>
-      @*   <a href="@Url.Action("Dashboard", "Home")" class="btn btn-outline-secondary">Ana Sayfa</a> *@
-    </div>
-</div>
-
-@* <div class="card"> *@
-  @*   <div class="card-header">
-        <h5>İşlem Geçmişiniz</h5>
-    </div> *@
+  
     <div class="card-body">
         @if (Model.Any())
         {
@@ -61,21 +54,7 @@
                                 </td>
                             </tr>
                         }
-                       @*  @foreach (var transaction in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <span class="badge bg-info">@transaction.TransactionType</span>
-                                </td>
-                                <td>
-                                    <!-- KASITLI IDOR LINK - Transaction ID doğrudan URL'de -->
-                                    <a href="@Url.Action("TransactionDetails", "Banking", new { id = transaction.TrId })"
-                                       class="btn btn-sm btn-outline-info" title="Detayları Gör">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        } *@
+                 
                     </tbody>
                 </table>
             </div>
@@ -98,17 +77,8 @@
             </div>
         }
     </div>
-@* </div> *@
-@* 
-<div class="alert alert-warning mt-4">
-    <h6>🔓 IDOR Vulnerability Test:</h6>
-    <p class="mb-2">Transaction details can be accessed without authorization:</p>
-    <small>
-        Try these URLs to view other users' transactions:<br>
-        <code>/Banking/TransactionDetails/1</code><br>
-        <code>/Banking/TransactionDetails/2</code><br>
-        <strong>Note:</strong> Change the number to access different transactions regardless of ownership.
-    </small>
-</div> *@
+
+
+
 
 
