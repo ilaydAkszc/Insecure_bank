@@ -30,9 +30,10 @@ namespace Insecure_Bank.Controllers
             }
             //  SQL INJECTION ZAFİYETİ!
             // Bu kod doğrudan string concatenation kullanıyor
-            var user = _context.Users.FromSqlRaw(
-                $"SELECT * FROM Users WHERE Username='{model.Username}' AND Password = '{model.Password}'").FirstOrDefault();
-
+            //var user = _context.Users.FromSqlRaw(
+               // $"SELECT * FROM Users WHERE Username='{model.Username}' AND Password = '{model.Password}'").FirstOrDefault();
+            //*****ZAAFİYET DÜZELTİLDİ*******
+            var user=_context.Users.FirstOrDefault(u=>u.Username==model.Username && u.Password==model.Password);
             if (user != null)
             {
                 // Session'a kullanıcı bilgilerini kaydet (güvensiz)
@@ -164,3 +165,4 @@ namespace Insecure_Bank.Controllers
 
     }
 }
+
