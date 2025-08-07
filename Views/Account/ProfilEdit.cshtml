@@ -58,9 +58,11 @@
                 <p><strong>Email:</strong> @Model.Email</p>
                 <div>
                     <strong>Hakkımda:</strong>
-                    <!-- KASITLI XSS ZAFİYETİ - HTML.Raw kullanılıyor! -->
+                    <!-- KASITLI XSS ZAFİYETİ - HTML.Raw kullanılıyor!  @Html.Raw(Model.Bio) -->
+                    
                     <div class="mt-2 p-2 border rounded">
-                        @Html.Raw(Model.Bio)
+  <!--  ZAFİYET DÜZELTİLDİ -->
+                       Model.Bio
                     </div>
                 </div>
             </div>
@@ -74,5 +76,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
 
 
